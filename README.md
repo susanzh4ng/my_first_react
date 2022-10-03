@@ -68,3 +68,82 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+SUSAN DUMPING HER CODE:
+import './App.css';
+
+const App = () => {
+const name = null;
+const isNameShowing = true;
+
+  return (
+    <div className="App">
+        <h1>Hello, {isNameShowing ? name : 'World'}!</h1>
+        {name ? (
+          <>
+            test!
+          </>):(
+            <>
+            <h1>test</h1>
+            <p>if you want to render two different elements next to e/o, need to wrap them in react fragments</p>
+            </>
+          )}
+    </div>
+  );
+}
+
+export default App;
+
+
+/////////////
+const Person = (props) => {
+  return(
+  <>
+    <h1>First Name : {props.name}</h1>
+    <h2>Last Name : {props.last}</h2>
+    <h2>Age : {props.age}</h2>
+  </>
+  )
+}
+const App = () => {
+  return (
+    <div className="App">
+      <Person name={'John'} last={'Doe'} age={30}/>
+      <Person name={'Sara'} last={'Murphy'} age={12}/> ///this is important because imagine there are a bunchhh of users and they have a bunchh of attributes
+    </div>
+  );
+}
+//////////
+import {useState} from 'react';
+import './App.css';
+const App = () => {
+  const[counter, setCounter]=useState(0); //the useState hook to make dynamic modifications
+  return (
+    <div className="App">
+      <button onClick={() => setCounter((prevCount)=>prevCount-1)}>-</button>
+      <h1>{counter}</h1>
+      <button onClick={() => setCounter((prevCount)=>prevCount+1)}>+</button>
+    </div>
+  );
+}
+///////////
+const App = () => {
+  
+  const[counter, setCounter]=useState(30); 
+  useEffect(()=>{ //useEffect is pulled as a function that accepts a function as a parameter
+    alert(" changed the counter to "+ counter);
+  },[counter]) //when the dependency array is empty, the code inside useEffect function is only going to happen initially
+  return (
+    <div className="App">
+      <button onClick={() => setCounter((prevCount)=>prevCount-1)}>-</button>
+      <h1>{counter}</h1>
+      <button onClick={() => setCounter((prevCount)=>prevCount+1)}>+</button>
+
+    </div>
+  );
+}
+/////////
+
+
